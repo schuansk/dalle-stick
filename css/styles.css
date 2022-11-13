@@ -4,11 +4,8 @@
   box-sizing: border-box;
 }
 
-body * {
-  font-family: 'Lobster Two', cursive;
-}
-
 body {
+  font-family: 'Lobster Two', cursive;
   background-color: #E12CD1;
   background: url('../assets/images/background.png');
   background-repeat: no-repeat;
@@ -120,17 +117,10 @@ body {
 
 .uuid {
   font-family: arial;
-  font-size: 8px;
+  font-size: 9px;
+  letter-spacing: 1px;
   color: #FFFFFF;
   margin-bottom: 4px;
-}
-
-.uuid > p {
-  transform: scale(-1, 1);
-  -moz-transform: scale(-1, 1);
-  -webkit-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-  -ms-transform: scale(-1, 1);
 }
 
 .button {
