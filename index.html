@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <title>Dall-e Stick</title>
+</head>
+<body>
+  <main class="container border">
+    <header class="title">
+      <h1 id="title">???</h1>
+    </header>
+    <figure class="figure">
+      <img id="figure" src="./assets/images/default-figure.png" alt=""/>
+    </figure>
+    <section class="power-container">
+      <article class="power border">
+        <img src="./assets/images/sword.png" alt="">
+        <span id="attack">???</span>
+      </article>
+      <article class="power border">
+        <img src="./assets/images/shield.png">
+        <span id="defense">???</span>
+      </article>
+    </section>
+    <section class="info">
+      <article class="ability">
+        <p id="ability"></p>
+      </article>
+      <article class="level" >
+        <span id="level">?</span>
+      </article>
+      <footer class="uuid">
+        <p id="uuid"></p>
+      </footer>
+    </section>
+  </main>
+  <footer>
+    <button class="button" id="generate">
+      <span>Gerar card</span>
+    </button>
+    <button class="button" id="save">
+      <span>Baixar card</span>
+    </button>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./js/nameGen.js"></script>
+  <script src="./js/abilityGen.js"></script>
+  <script src="./js/figureGen.js"></script>
+  <script src="./js/changeBorderColor.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>

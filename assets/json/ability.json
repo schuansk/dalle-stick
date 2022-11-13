@@ -1,0 +1,19 @@
+{
+  "data": [
+    "",
+    "",
+    "Aumenta a defesa das demais cartas em 10%, mas reduz o ataque seus ataques em 15%.",
+    "Todas as cartas de nível 1 recebem mais 10% de defesa ao troco de uma carta aleatória do seu maior nível.",
+    "Remove uma carta aleatória de maior nível do adversário, mas não ataca e nem defende no turno de uso da carta.",
+    "A sua maior defesa é copiada, mas o ataque da carta copiada diminui 10%.",
+    "Adiciona uma carta de nível 1 quando é derrotada.",
+    "Subsistiu a carta mais forte do adversário, colocando em seu lugar a sua carta mais forte.",
+    "Distribuí uma carta de nível 1 para você e seu adversário.",
+    "Se for atacada por uma carta de nível 5 a defesa aumenta em 10%.",
+    "Vence todos os ataques de cartas no nível 2, mas perde para todas de nível 1.",
+    "Transfere 10% de ataque da carta da frente para a carta de trás.",
+    "Transfere 10% da defesa da carta da frente para a carta de trás.",
+    "Adiciona uma carta aleatória de qualquer nível para você e seu adversário.",
+    "Sacrifica duas cartas aleatórias para invocar uma carta aleatória de nível de 5."
+  ]
+}
