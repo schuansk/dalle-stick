@@ -17,9 +17,3 @@ function figureGenerator() {
     `${figureStyle} of a ${creatureColor} ${creatureType} ${creatureCategory} in a ${figureEnvironment} on a ${figureIllumination} ${backgroundColor} background, digital art`
   return phrase.replace(/\s+/g, ' ');
 }
-
-function selectAnItemFromTheArray(array) {
-  const arrayLength = array.length;
-  let item = array[Math.floor(Math.random() * arrayLength - 1) + 1];
-  return item;
-}

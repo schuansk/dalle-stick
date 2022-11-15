@@ -1,8 +1,8 @@
 const skills = [];
 
 function loadingAbility() {
-  const url = window.location.href;
-  fetch(`${url}assets/json/ability.json`)
+  const baseUrl = window.location.origin;
+  fetch(`${baseUrl}/assets/json/ability.json`)
     .then(response => response.json())
     .then(({ data }) => {
       skills.push(...data);

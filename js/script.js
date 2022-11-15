@@ -14,8 +14,6 @@ document.getElementById('save').addEventListener('click', renderCanva)
 
 function pupulateCard() {
   handleNewCard.querySelector('span').innerText = 'Gerando...';
-  const attackValue = generateRandomValue();
-  const defenseValue = generateRandomValue();
   const myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append('Authorization', `Bearer ${OPENAI_TOKEN}`);
@@ -38,14 +36,13 @@ function pupulateCard() {
       const newImage = new Image();
       newImage.src = `data:image/png;base64,${b64_json}`;
       newImage.decode().then(async () => {
+        const { level, attack, defense } = getPower();
         figureEle.setAttribute('src', newImage.src);
         uuid = uuidv4();
         uuidEle.textContent = uuid;
-        attackEle.textContent = attackValue;
-        defenseEle.textContent = defenseValue;
-        const level = calculateLevel(attackValue, defenseValue)
-        const recalculatedLevel = (attackValue >= 850 || defenseValue >= 850) && level < 4 ? level + 1 : level;
-        levelEle.textContent = recalculatedLevel;
+        attackEle.textContent = attack;
+        defenseEle.textContent = defense;
+        levelEle.textContent = level;
         titleEle.textContent = await nameGenerator();
         abilityEle.textContent = getAbility();
         setTimeout(changeBorderColor, 10);
@@ -57,25 +54,6 @@ function pupulateCard() {
       console.log('error', error);
       alert('Ocorreu um erro.');
     });
-}
-
-function generateRandomValue() {
-  return Math.floor(Math.random() * (999 - 1 + 1)) + 1;
-}
-
-function calculateLevel(attackValue, defenseValue) {
-  const average = (attackValue + defenseValue) / 2;
-  if (average <= 200) {
-    return 1;
-  } else if (average > 200 && average <= 400) {
-    return 2;
-  } else if (average > 400 && average <= 600) {
-    return 3;
-  } else if (average > 600 && average <= 800) {
-    return 4;
-  } else {
-    return 5;
-  }
 }
 
 function uuidv4() {
