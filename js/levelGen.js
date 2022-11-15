@@ -1,7 +1,8 @@
-const levels = [1, 2, 3, 4, 5];
+const levels = { 1: 5, 2: 4, 3: 2, 4: 2, 5: 1 };
 
 function getPower() {
-  const level = selectAnItemFromTheArray(levels);
+  const levelsList = convertObjectToWeightArray(levels);
+  const level =  Number(selectAnItemFromTheArray(levelsList));
   const attack = calculateValue(level);
   const defense = calculateValue(level);
   return { level, attack, defense };

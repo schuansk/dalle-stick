@@ -1,10 +1,10 @@
-const vowal = ['a', 'a', 'a', 'a', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'o', 'o', 'o', 'o', 'u', 'u'];
-const consonant = ['b', 'b', 'c', 'c', 'd', 'd', 'f', 'f', 'g', 'g', 'j', 'k', 'l', 'l', 'm', 'm', 'n', 'n', 'n', 'p', 'p', 'q', 'q', 'r', 'r', 'r', 's', 's', 's', 't', 't', 'v', 'v', 'w', 'x', 'y', 'z'];
+const vowal = { 'a': 5, 'e': 4, 'i': 3, 'o': 4, 'u': 2 }
+const consonant = { 'b': 4, 'c': 4, 'd': 4, 'f': 4, 'g': 4, 'j': 1, 'k': 1, 'l': 4, 'm': 4, 'n': 3, 'p': 4, 'q': 4, 'r': 3, 's': 3, 't': 4, 'v': 4, 'w': 1, 'x': 1, 'y': 1, 'z': 1 };
 
 function syllable(firstSyllable) {
   const includeLetter = Math.random() < 0.5;
-  let selectedConsonant =
-    consonant[Math.floor(Math.random() * consonant.length - 1) + 1];
+  const availableConsonant = convertObjectToWeightArray(consonant);
+  let selectedConsonant = availableConsonant[Math.floor(Math.random() * availableConsonant.length - 1) + 1];
   switch (selectedConsonant) {
     case 'l':
     case 'n':
@@ -21,11 +21,15 @@ function syllable(firstSyllable) {
       break; 
     case 'g': 
       if(includeLetter) selectedConsonant += 'u';
-      break; 
+      break;
+    case 'r':
+      if(includeLetter && !firstSyllable) selectedConsonant += 'r';
+      break;  
     default:
       break;
   }
-  let availableVowels = vowal;
+  const vowalList = convertObjectToWeightArray(vowal);
+  let availableVowels = vowalList;
   switch (selectedConsonant[selectedConsonant.length - 1]) {
     case 'u':
       availableVowels = removeByValue(availableVowels, 'u');
@@ -69,13 +73,14 @@ async function nameGenerator() {
 }
 
 function startWithVowelOrNot(word) {
+  const vowalList = Object.keys(vowal);
   const shouldYouStartWithTheVowel = Math.random() < 0.5;
   const currentFirstLetter = word[0];
   const promise = new Promise((resolve) => {
     let newFirstLetter;
     if (shouldYouStartWithTheVowel) {
       do {
-        newFirstLetter = vowal[Math.floor(Math.random() * vowal.length - 1) + 1];
+        newFirstLetter = vowalList[Math.floor(Math.random() * vowalList.length - 1) + 1];
       } while (newFirstLetter === currentFirstLetter);
       resolve(newFirstLetter);
     }
